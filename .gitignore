@@ -52,8 +52,8 @@ ehthumbs.db
 Thumbs.db
 
 # Data files (keep structure but ignore actual files)
-data/cv.pdf
-data/experience.txt
+# data/cv.pdf
+# data/experience.txt
 
 # Logs
 *.log

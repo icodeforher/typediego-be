@@ -20,8 +20,8 @@ RUN pip install gunicorn
 # Copy application code
 COPY . .
 
-# Create data directory if it doesn't exist
-RUN mkdir -p data
+# Ensure data files are copied
+COPY data/ ./data/
 
 # Expose port
 EXPOSE 8000
