@@ -1,0 +1,39 @@
+# Archivo de ejemplo para experience.txt
+# Reemplaza este contenido con información real sobre tu experiencia
+
+Metodología de trabajo:
+- Prefiero trabajar con metodologías ágiles como Scrum y Kanban
+- Me gusta el desarrollo iterativo con entregas frecuentes
+- Valoro la comunicación clara y la retroalimentación constante del equipo
+- Creo en la importancia de las retrospectivas para mejorar continuamente
+
+Filosofía de desarrollo:
+- Creo firmemente en el código limpio y mantenible
+- Prefiero la simplicidad sobre la complejidad innecesaria
+- Me enfoco en escribir código que sea fácil de entender y modificar
+- Considero que la documentación es tan importante como el código mismo
+
+Resolución de problemas:
+- Analizo los problemas desde múltiples perspectivas antes de implementar
+- Busco soluciones simples y eficientes que resuelvan la raíz del problema
+- Me gusta investigar y aprender nuevas tecnologías cuando agregan valor real
+- Prefiero iterar y mejorar gradualmente en lugar de buscar la solución perfecta desde el inicio
+
+Experiencias específicas:
+- He liderado equipos de desarrollo en proyectos de migración de sistemas legacy
+- Tengo experiencia implementando arquitecturas de microservicios
+- He trabajado en optimización de performance en aplicaciones de alto tráfico
+- Me especializo en integración de APIs y servicios de terceros
+
+Tecnologías preferidas:
+- Backend: Python, Node.js, Java
+- Frontend: React, Vue.js
+- Bases de datos: PostgreSQL, MongoDB
+- Cloud: AWS, Docker, Kubernetes
+- Herramientas: Git, Jenkins, Jira
+
+Formas de comunicación:
+- Prefiero la comunicación directa y honesta
+- Me gusta explicar conceptos técnicos de manera simple
+- Valoro el feedback constructivo y lo doy de la misma manera
+- Creo en la importancia de mantener al equipo alineado con los objetivos
