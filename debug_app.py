@@ -10,29 +10,29 @@ def debug_document_loading():
     documents = processor.load_documents()
     
     if documents:
-        print(f"\n✓ Documentos cargados exitosamente: {len(documents)}")
+        print(f"\n✓ Documents loaded successfully: {len(documents)}")
         for i, doc in enumerate(documents):
-            print(f"  Documento {i+1}:")
-            print(f"    Fuente: {doc.metadata.get('source', 'N/A')}")
-            print(f"    Tipo: {doc.metadata.get('type', 'N/A')}")
-            print(f"    Contenido (primeros 100 chars): {doc.page_content[:100]}...")
+            print(f"  Document {i+1}:")
+            print(f"    Source: {doc.metadata.get('source', 'N/A')}")
+            print(f"    Type: {doc.metadata.get('type', 'N/A')}")
+            print(f"    Content (first 100 chars): {doc.page_content[:100]}...")
     else:
-        print("\n✗ No se cargaron documentos")
+        print("\n✗ No documents loaded")
     
     # Test chatbot service
     print("\n=== Test Chatbot Service ===")
     try:
         chatbot = ChatbotService()
         is_valid = chatbot.validate_setup()
-        print(f"Chatbot setup válido: {is_valid}")
+        print(f"Chatbot setup valid: {is_valid}")
         
         if is_valid:
-            print("\n✓ Chatbot configurado correctamente")
+            print("\n✓ Chatbot configured correctly")
         else:
-            print("\n✗ Problema con la configuración del chatbot")
+            print("\n✗ Problem with chatbot configuration")
             
     except Exception as e:
-        print(f"\n✗ Error inicializando chatbot: {e}")
+        print(f"\n✗ Error initializing chatbot: {e}")
 
 if __name__ == "__main__":
     debug_document_loading()

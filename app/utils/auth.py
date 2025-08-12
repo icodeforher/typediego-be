@@ -10,8 +10,8 @@ def api_key_required(f):
         
         if not api_key:
             return jsonify({
-                'error': 'API Key requerida',
-                'message': 'Debe proporcionar una API key en el header X-API-KEY'
+                'error': 'API Key required',
+                'message': 'You must provide an API key in the X-API-KEY header'
             }), 401
         
         # Get valid API keys from config
@@ -21,14 +21,14 @@ def api_key_required(f):
         
         if not valid_keys:
             return jsonify({
-                'error': 'Configuración de autenticación no encontrada',
-                'message': 'El servidor no tiene configuradas API keys válidas'
+                'error': 'Authentication configuration not found',
+                'message': 'The server does not have valid API keys configured'
             }), 500
         
         if api_key not in valid_keys:
             return jsonify({
-                'error': 'API Key inválida',
-                'message': 'La API key proporcionada no es válida'
+                'error': 'Invalid API Key',
+                'message': 'The provided API key is not valid'
             }), 403
         
         return f(*args, **kwargs)
@@ -43,8 +43,8 @@ def require_auth_token(f):
         
         if not auth_header:
             return jsonify({
-                'error': 'Token de autorización requerido',
-                'message': 'Debe proporcionar un token de autorización en el header Authorization'
+                'error': 'Authorization token required',
+                'message': 'You must provide an authorization token in the Authorization header'
             }), 401
         
         # Extract token (support both "Bearer token" and just "token" formats)
@@ -57,14 +57,14 @@ def require_auth_token(f):
         
         if not valid_keys:
             return jsonify({
-                'error': 'Configuración de autenticación no encontrada',
-                'message': 'El servidor no tiene configuradas API keys válidas'
+                'error': 'Authentication configuration not found',
+                'message': 'The server does not have valid API keys configured'
             }), 500
         
         if token not in valid_keys:
             return jsonify({
-                'error': 'Token de autorización inválido',
-                'message': 'El token proporcionado no es válido'
+                'error': 'Invalid authorization token',
+                'message': 'The provided token is not valid'
             }), 403
         
         return f(*args, **kwargs)

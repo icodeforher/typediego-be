@@ -17,22 +17,22 @@ def chat():
         data = request.get_json()
         if not data or 'question' not in data:
             return jsonify({
-                'error': 'Pregunta requerida',
-                'message': 'Debe proporcionar una pregunta en el campo "question"'
+                'error': 'Question required',
+                'message': 'You must provide a question in the "question" field'
             }), 400
         
         question = data['question'].strip()
         if not question:
             return jsonify({
-                'error': 'Pregunta vacía',
-                'message': 'La pregunta no puede estar vacía'
+                'error': 'Empty question',
+                'message': 'The question cannot be empty'
             }), 400
         
         # Validate chatbot setup
         if not chatbot_service.validate_setup():
             return jsonify({
-                'error': 'Configuración incompleta',
-                'message': 'No se encontraron documentos para procesar. Asegúrese de que existan los archivos CV.pdf y experience.txt en la carpeta data/'
+                'error': 'Incomplete configuration',
+                'message': 'No documents found to process. Make sure CV.pdf and experience.txt files exist in the data/ folder'
             }), 500
         
         def generate():
@@ -47,7 +47,7 @@ def chat():
                 
             except Exception as e:
                 # Send error in stream format
-                error_msg = f"Error durante la generación: {str(e)}"
+                error_msg = f"Error during generation: {str(e)}"
                 yield f"data: {json.dumps({'content': error_msg, 'type': 'error'})}\n\n"
         
         # Return streaming response
@@ -65,8 +65,8 @@ def chat():
         
     except Exception as e:
         return jsonify({
-            'error': 'Error interno del servidor',
-            'message': f'Error al procesar la solicitud: {str(e)}'
+            'error': 'Internal server error',
+            'message': f'Error processing request: {str(e)}'
         }), 500
 
 @chatbot_bp.route('/health', methods=['GET'])
@@ -76,13 +76,13 @@ def health():
         is_ready = chatbot_service.validate_setup()
         return jsonify({
             'status': 'healthy' if is_ready else 'not_ready',
-            'message': 'Chatbot está funcionando correctamente' if is_ready else 'Documentos no encontrados',
+            'message': 'Chatbot is working correctly' if is_ready else 'Documents not found',
             'documents_loaded': is_ready
         }), 200 if is_ready else 503
     except Exception as e:
         return jsonify({
             'status': 'error',
-            'message': f'Error en el health check: {str(e)}'
+            'message': f'Error in health check: {str(e)}'
         }), 500
 
 @chatbot_bp.route('/chat', methods=['OPTIONS'])
